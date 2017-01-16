@@ -1,3 +1,25 @@
-<h1>
-  {{title}}
-</h1>
+<div class="main-container">
+    <header class="header-6">
+        <div class="branding">
+            <a href="#" class="nav-link">
+                <clr-icon shape="dashboard"></clr-icon>
+                <span class="title">Corporate Dashboard</span>
+            </a>
+        </div>
+        <div class="header-nav">
+            <a [routerLink]="['data']" class="active nav-link"><span class="nav-text">Data</span></a>
+            <a [routerLink]="['geo-spatial']" class="nav-link"><span class="nav-text">Geo Spatial</span></a>
+            <a [routerLink]="['key-metrics']" class="nav-link"><span class="nav-text">Key Metrics</span></a>
+        </div>
+        <div class="header-actions">
+            <a href="#" class="nav-link nav-icon">
+                <span class="spinner spinner-inverse spinner-md" style="margin-top: 10px" *ngIf="(isLoading | async)">
+                    Loading...
+                </span>
+            </a>
+        </div>
+    </header>
+    <div class="content-container">
+        <router-outlet></router-outlet>
+    </div>
+</div>

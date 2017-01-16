@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "index": "github:gaearon/redux-thunk/index.d.ts"
+  }
+}

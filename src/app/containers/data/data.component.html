@@ -1,0 +1,22 @@
+<div class="d-holder">
+    <clr-datagrid class="dg">
+        <clr-dg-column>Submitted</clr-dg-column>
+        <clr-dg-column>Closed</clr-dg-column>
+        <clr-dg-column>Status</clr-dg-column>
+        <clr-dg-column>Employee</clr-dg-column>
+        <clr-dg-column>Customer</clr-dg-column>
+        <clr-dg-column>Description</clr-dg-column>
+        <clr-dg-row *ngFor="let issue of (Issues | async)">
+            <clr-dg-cell>{{issue.submission}}</clr-dg-cell>
+            <clr-dg-cell>{{issue.closed}}</clr-dg-cell>
+            <clr-dg-cell>{{issue.status}}</clr-dg-cell>
+            <clr-dg-cell>{{issue.employee.name}}</clr-dg-cell>
+            <clr-dg-cell>{{issue.customer.name}}</clr-dg-cell>
+            <clr-dg-cell>{{issue.description}}</clr-dg-cell>
+        </clr-dg-row>
+        <clr-dg-footer>
+            <clr-icon shape="caret left" (click)="getPrevData()"></clr-icon>
+            <clr-icon shape="caret right" (click)="getNextData()"></clr-icon>
+        </clr-dg-footer>
+    </clr-datagrid>
+</div>

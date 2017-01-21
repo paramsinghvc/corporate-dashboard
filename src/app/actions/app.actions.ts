@@ -22,6 +22,26 @@ export class AppActions {
 		}
 	}
 
+	setIssuesFilter: IActionCreator = (status: string) => {
+		return {
+			type: AppConstants.FILTER_ISSUES,
+			payload: status
+		}
+	}
+
+	sortIssuesByDate: IActionCreator = (isAsc) => {
+		return {
+			type: AppConstants.SORT_ISSUES_BY_DATE,
+			payload: isAsc
+		}
+	}
+
+	removeIssuesFilter: IActionCreator = (status: string) => {
+		return {
+			type: AppConstants.CLEAR_FILTERS
+		}
+	}
+
 	setNextShownIssues: IActionCreator = () => {
 		return {
 			type: AppConstants.SET_NEXT_SHOWN_ISSUES
@@ -34,12 +54,46 @@ export class AppActions {
 		}
 	}
 
+	setGeoSpatialData: IActionCreator = (payload: any) => {
+		return {
+			type: AppConstants.SET_GEOSPATIAL_DATA,
+			payload
+		}
+	}
+
+	setKeyMetricsData: IActionCreator = (payload: any) => {
+		return {
+			type: AppConstants.SET_KEYMETRICS_DATA,
+			payload
+		}
+	}
+
 	getAllIssues() {
 		return (dispatch) => {
 			dispatch(this.setLoader(true));
 			this.apiBridge.getAllIssues().subscribe(res => {
 				dispatch(this.setLoader(false));
 				dispatch(this.setIssues(res));
+			})
+		}
+	}
+
+	getkeyMetricsData(){
+		return (dispatch) => {
+			dispatch(this.setLoader(true));
+			this.apiBridge.getKeyMetricsData().subscribe(res => {
+				dispatch(this.setLoader(false));
+				dispatch(this.setKeyMetricsData(res));
+			})
+		}
+	}
+
+	getGeoSpatialData(){
+		return (dispatch) => {
+			dispatch(this.setLoader(true));
+			this.apiBridge.getGeoSpatialData().subscribe(res => {
+				dispatch(this.setLoader(false));
+				dispatch(this.setGeoSpatialData(res));
 			})
 		}
 	}

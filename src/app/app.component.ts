@@ -11,9 +11,9 @@ import { Observable } from 'rxjs/Rx';
 export class AppComponent implements OnInit {
 	@select(['app', 'isLoading']) isLoading: Observable<boolean>;
 
-	constructor(private appActions: AppActions, private redux: NgRedux<any>) { }
+	constructor() { }
 
 	ngOnInit() {
-		this.redux.dispatch(<any>this.appActions.getAllIssues());
+		
 	}
 }

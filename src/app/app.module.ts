@@ -17,6 +17,7 @@ import { AppActions } from './actions';
 
 import { store } from './shared/buildReduxStore';
 import { Routing } from './app.router';
+import { GoogleChartsDirective } from './google-charts.directive';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDrNGdYNemMcZmDusvEgcQmKvZIQz6tqfo",
@@ -31,7 +32,8 @@ const firebaseConfig = {
         AppComponent,
         GeoSpatialComponent,
         KeyMetricsComponent,
-        DataComponent
+        DataComponent,
+        GoogleChartsDirective
     ],
     imports: [
         BrowserModule,

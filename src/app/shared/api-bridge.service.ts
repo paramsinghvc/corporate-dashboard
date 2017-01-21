@@ -11,9 +11,16 @@ export class ApiBridge {
 	}
 
 	getAllIssues(): Observable<Array<Issue>> {
-		return this.db.object('data')
-			.map(res => res.store.issues)
+		return this.db.object('data/store/issues')
 			.map(issues => issues.map(i => new Issue(i)));
+	}
+
+	getKeyMetricsData(): Observable<any> {
+		return this.db.object('data/store/keyMetrics');
+	}
+
+	getGeoSpatialData(): Observable<any> {
+		return this.db.object('data/store/employees');
 	}
 
 }

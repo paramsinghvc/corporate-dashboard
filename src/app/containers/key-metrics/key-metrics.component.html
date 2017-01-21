@@ -1,3 +1,8 @@
-<p>
-  key-metrics works!
-</p>
+<div>
+    <div id="customers_chart_div" appGoogleCharts [chartData]="customersChartDataOb" [chartOptions]="chartOptions" [chartType]="'AreaChart'"></div>
+    <div id="chart_div" appGoogleCharts [chartData]="issuesChartDataOb" [chartOptions]="chartOptions" [chartType]="'ColumnChart'"></div>
+    <section class="stats-holder">
+    	<h3>Open issues</h3>
+    	<p>{{(kmData | async)?.getIn(['stats', 'open'])}}/{{(kmData | async)?.getIn(['stats', 'total'])}}</p>
+    </section>
+</div>

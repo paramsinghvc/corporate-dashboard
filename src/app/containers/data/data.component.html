@@ -1,4 +1,22 @@
 <div class="d-holder">
+    <section class="filters">
+        <clr-icon shape="filter" class="filter-icon" *ngIf="!filtersExpanded" (click)="filtersExpanded=!filtersExpanded"></clr-icon>
+        <div class="form-group filters-form" *ngIf="filtersExpanded">
+            <label for="filter_sb">Filter Status</label>
+            <div class="select">
+                <select id="filter_sb" (change)="filterIssues($event)">
+                    <option value="critical">Critical</option>
+                    <option value="warning">Warning</option>
+                    <option value="unknown">Unknown</option>
+                    <option value="disabled">Disabled</option>
+                    <option value="ok">Ok</option>
+                </select>
+            </div>
+            <clr-icon shape="remove" class="remove-icon" (click)="removeIssuesFilter()"></clr-icon>
+            <clr-icon shape="caret" class="up-icon" (click)="sortIssuesByDate(false)"></clr-icon>
+            <clr-icon shape="caret" class="down-icon" (click)="sortIssuesByDate(true)"></clr-icon>
+        </div>
+    </section>
     <clr-datagrid class="dg">
         <clr-dg-column>Submitted</clr-dg-column>
         <clr-dg-column>Closed</clr-dg-column>
@@ -15,8 +33,12 @@
             <clr-dg-cell>{{issue.description}}</clr-dg-cell>
         </clr-dg-row>
         <clr-dg-footer>
-            <clr-icon shape="caret left" (click)="getPrevData()"></clr-icon>
-            <clr-icon shape="caret right" (click)="getNextData()"></clr-icon>
+            <button (click)="getPrevData()" [disabled]="(currentPage | async) === 1">
+                <clr-icon shape="caret left"></clr-icon>
+            </button>
+            <button (click)="getNextData()" [disabled]="(isLast | async)">
+                <clr-icon shape="caret right"></clr-icon>
+            </button>
         </clr-dg-footer>
     </clr-datagrid>
 </div>

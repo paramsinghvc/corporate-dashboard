@@ -1,4 +1,5 @@
-# CorporateDashboard
+# Corporate Dashboard
+An Angular 2 app with TypeScript + Redux + ImmutableJS + Google Charts + VMWare Clarity UI.
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.24.
 

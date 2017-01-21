@@ -4,7 +4,7 @@
     "license": "MIT",
     "angular-cli": {},
     "scripts": {
-        "start": "ng serve --prod --port",
+        "start": "ng serve --prod --port 3000",
         "lint": "tslint \"src/**/*.ts\"",
         "test": "ng test",
         "preinstall": "npm install -g http-server typings angular-cli",

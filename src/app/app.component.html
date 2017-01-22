@@ -1,15 +1,31 @@
 <div class="main-container">
     <header class="header-6">
         <div class="branding">
-            <a href="#" class="nav-link">
+            <nav role="navigation">
+                <div id="menuToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id="menu">
+                        <a [routerLink]="['data']" class="active nav-link">
+                            <li>Data</li>
+                        </a>
+                        <a [routerLink]="['geo-spatial']" class="nav-link">
+                            <li>Geo Spatial</li>
+                        </a>
+                        <a [routerLink]="['key-metrics']" class="nav-link">
+                            <li>Key Metrics</li>
+                        </a>
+                    </ul>
+                </div>
+            </nav>
+            <a href="#" class="nav-link" style="margin-left: 10px">
                 <clr-icon shape="dashboard"></clr-icon>
                 <span class="title">Corporate Dashboard</span>
             </a>
         </div>
-        <div class="header-nav">
-            <a [routerLink]="['data']" class="active nav-link"><span class="nav-text">Data</span></a>
-            <a [routerLink]="['geo-spatial']" class="nav-link"><span class="nav-text">Geo Spatial</span></a>
-            <a [routerLink]="['key-metrics']" class="nav-link"><span class="nav-text">Key Metrics</span></a>
+        <div class="nav-menu">
         </div>
         <div class="header-actions">
             <a href="#" class="nav-link nav-icon">
